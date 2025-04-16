@@ -1,0 +1,76 @@
+{
+    "main_15": {
+        "id": "main_15",
+        "name": "Dissociative Recombination",
+        "entryType": "MAINLINE",
+        "actType": "MAIN_STORY",
+        "startTime": -1,
+        "endTime": -1,
+        "startShowTime": 1743998400,
+        "endShowTime": -1,
+        "remakeStartTime": -1,
+        "remakeEndTime": -1,
+        "storyEntryPicId": null,
+        "storyPicId": null,
+        "storyMainColor": null,
+        "customType": 0,
+        "storyCompleteMedalId": null,
+        "rewards": [],
+        "infoUnlockDatas": [
+            {
+                "storyReviewType": "NONE",
+                "storyId": "main_15_level_main_15-15_beg",
+                "storyGroup": "main_15",
+                "storySort": 229,
+                "storyDependence": "main_15_level_main_15-15_beg",
+                "storyCanShow": 0,
+                "storyCode": "15-17",
+                "storyName": "“Her”",
+                "storyPic": null,
+                "storyInfo": "info/obt/main/level_main_15-15_beg",
+                "storyCanEnter": 1,
+                "storyTxt": "level_main_15-15_beg",
+                "avgTag": "行动前",
+                "unLockType": "STAGE_CLEAR",
+                "costItemType": "NONE",
+                "costItemId": null,
+                "costItemCount": 0,
+                "stageCount": 1,
+                "requiredStages": [
+                    {
+                        "stageId": "main_15-15",
+                        "minState": "PLAYED",
+                        "maxState": "COMPLETE"
+                    }
+                ]
+            },
+            {
+                "storyReviewType": "NONE",
+                "storyId": "main_15_level_main_15-15_end",
+                "storyGroup": "main_15",
+                "storySort": 232,
+                "storyDependence": "main_15_level_main_15-15_end",
+                "storyCanShow": 0,
+                "storyCode": "15-17",
+                "storyName": "“Her”",
+                "storyPic": null,
+                "storyInfo": "info/obt/main/level_main_15-15_end",
+                "storyCanEnter": 1,
+                "storyTxt": "level_main_15-15_end",
+                "avgTag": "行动后",
+                "unLockType": "STAGE_CLEAR",
+                "costItemType": "NONE",
+                "costItemId": null,
+                "costItemCount": 0,
+                "stageCount": 1,
+                "requiredStages": [
+                    {
+                        "stageId": "main_15-15",
+                        "minState": "PASS",
+                        "maxState": "COMPLETE"
+                    }
+                ]
+            }
+        ]
+    }
+}

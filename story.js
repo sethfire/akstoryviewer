@@ -699,6 +699,9 @@ function loadStoryReviewTable(language) {
         case "zh_CN":
             return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/story_review_table.json")
             .then(response => response.json());
+        case "local":
+            return fetch("assets/story/story_review_table.json")
+            .then(response => response.json());
         default:
             console.error("Unsupported language:", language);
             return null;
@@ -738,32 +741,13 @@ function updateChapterSelection() {
     });
 }
 
-function loadChapter(language) {
-    switch (language) {
-        case "en_US":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/en_US/gamedata/excel/story_review_table.json")
-            .then(response => response.json());
-        case "ja_JP":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ja_JP/gamedata/excel/story_review_table.json")
-            .then(response => response.json());
-        case "ko_KR":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ko_KR/gamedata/excel/story_review_table.json")
-            .then(response => response.json());
-        case "zh_CN":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/story_review_table.json")
-            .then(response => response.json());
-        default:
-            console.error("Unsupported language:", language);
-            return null;
-    }
-}
-
 function getStoryURL(language, script) {
     switch (language) {
         case "en_US": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/en_US/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ja_JP": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ja_JP/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ko_KR": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ko_KR/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "zh_CN": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "local": return "assets/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         default:
             console.error("Unsupported language:", language);
             return null;
