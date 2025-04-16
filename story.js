@@ -461,7 +461,46 @@ function renderLine(entry) {
 
             break;
 
-        // case "character":
+        //the newer stories use charslot, not character
+        //this will still need to be included for legacy reasons
+        case "character":
+            if (entry.data.name) {
+                gameState.characterLeftElement.innerHTML = "";
+                gameState.characterRightElement.innerHTML = "";
+                gameState.characterMiddleElement.innerHTML = "";
+
+                if (entry.data.name && !entry.data.name2) {
+                    if (!entry.data.name.match(/#\d+\$\d+$/)) entry.data.name += "#1$1";
+
+                    const img = document.createElement("img");
+                    img.src = getCharacterURL(entry.data.name);
+
+                    gameState.characterMiddleElement.appendChild(img);
+
+                } else if (entry.data.name && entry.data.name2) {
+                    if (!entry.data.name.match(/#\d+\$\d+$/)) entry.data.name += "#1$1";
+                    if (!entry.data.name2.match(/#\d+\$\d+$/)) entry.data.name2 += "#1$1";
+
+                    const img = document.createElement("img");
+                    img.src = getCharacterURL(entry.data.name);
+                    
+                    const img2 = document.createElement("img");
+                    img2.src = getCharacterURL(entry.data.name2);
+
+                    gameState.characterLeftElement.appendChild(img);
+                    gameState.characterRightElement.appendChild(img2);
+
+                    if (entry.data.focus === 1) {
+                        gameState.characterLeftElement.classList.remove("dimmed");
+                        gameState.characterRightElement.classList.add("dimmed");
+                    } else {
+                        gameState.characterLeftElement.classList.add("dimmed");
+                        gameState.characterRightElement.classList.remove("dimmed");
+                    }
+                }
+
+            }
+            break;
         case "charslot":
             if (entry.data.slot) {
                 if (entry.data.name) {
