@@ -246,8 +246,8 @@ function parseScriptLine(line) {
             }
         };
     }
-
-    const dialogMatch = line.match(/^\[name="(.+?)"\](.+)$/);
+    
+    const dialogMatch = line.match(/^\[name="(.*?)"\](.+)$/);
     if (dialogMatch) {
         console.log(`(dialog) speaker="${dialogMatch[1]}", text="${dialogMatch[2]}"`);
         return {
@@ -301,7 +301,7 @@ function renderLine(entry) {
     
     switch (entry.type) {
         case "dialog":
-            if (entry.data.speaker && entry.data.text) {
+            if (entry.data.text) {
                 console.log(`Loading dialog "${entry.data.speaker}: ${entry.data.text}"`);
     
                 gameState.dialogContainer.classList.remove('hidden');
@@ -359,6 +359,22 @@ function renderLine(entry) {
 
             // gameState.isWaitingForInput = true;
             // break;
+            
+            //[Sticker(id="st1", multi = true, text="<i>It was an evening close to New Year's.</i>", x=300,y=270,  alignment="left", size=24, delay=0.04, width=700,block = true)]
+
+
+        //temp
+        case "sticker":
+            if (entry.data.text) {
+                console.log(`Loading sticker "${entry.data.text}"`);
+    
+                gameState.dialogContainer.classList.remove('hidden');
+                gameState.dialogSpeaker.textContent = "";
+                textWriter(gameState.dialogText, entry.data.text);
+    
+                gameState.isWaitingForInput = true;
+            }
+            break;
 
         case "background":
             if(entry.data.image) {
