@@ -1,0 +1,223 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: sans-serif;
+}
+
+#navbar {
+    height: 48px;
+    background-color: #333;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar-right {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#navbar .scene-select {
+    font-size: 16px;
+}
+
+footer {
+    height: 60px;
+    background-color: #333;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+#fullscreen-button {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#main-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-width: calc((100vh - 48px) * 16 / 9);
+    max-height: calc(100vh - 48px);
+    background-color: black;
+    overflow: hidden;
+}
+
+#game-menu, #game-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+/** SCENE CSS */
+
+#scene-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+#blocker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+/** CHARACTER CSS */
+
+#character-container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.character-slot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -25%);
+}
+
+.character-slot img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity var(--fade-duration, 1s) ease-in-out;
+}
+  
+.fade-in.visible {
+    opacity: 1;
+}
+
+#character-left {
+    left: 30%;
+}
+  
+#character-middle {
+    left: 50%;
+}
+
+#character-right {
+    left: 70%;
+}
+
+.dimmed {
+  filter: brightness(50%);
+} 
+
+/** DIALOG CSS */
+#dialog-container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+}
+
+#dialog-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    width: 100%;
+    height: 100px;
+    
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.0) 100%
+    );
+    
+    transition: opacity 0.1s ease;
+}
+
+#dialog-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 25%;
+
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 60%,
+      rgba(0, 0, 0, 0.0) 100%
+    );
+
+    display: flex;
+    gap: clamp(10px, 5vw, 60px);
+  
+    padding: clamp(12px, 4vw, 60px) clamp(40px, 15vw, 200px) clamp(20px, 4vw, 40px) clamp(40px, 15vw, 200px);
+    box-sizing: border-box;
+    
+    color: white;
+    transition: opacity 0.1s ease;
+}
+
+#dialog-speaker {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+    font-size: 1.4em;
+    color: #777777;
+    text-align: right;
+    user-select: none;
+}
+
+#dialog-text {
+    flex: 3;
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.4em;
+    text-align: left;
+    user-select: none;
+}

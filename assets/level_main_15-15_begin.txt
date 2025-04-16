@@ -1,0 +1,541 @@
+[HEADER(key="title_test", is_skippable=true, fit_mode="BLACK_MASK")]
+[stopmusic]
+[dialog]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[charslot]
+[PlayMusic(key="$babel_loop", volume=0.6)]
+I believe the connection between us can transcend time and space.
+Even if the seas boil, even if the atmosphere disappears, even if our satellites plunge one after another into a whirlpool of gravity, even if our sun swells ferociously and mercilessly devours its children until all is silent...
+[dialog]
+[curtain(direction = 0, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[curtain(direction = 4, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[Delay(time=1)]
+[bgeffect(name="$eb_tvnoise", layer=1)]
+[CameraEffect(effect="Grayscale", amount=0.8, keep=true)]
+[Image(image="avg_ac8mi_Pre", screenadapt="coverall")]
+[PlaySound(key="$d_avg_filmprojection")]
+[playsound(key="$d_avg_filmprojection_loop", loop=true, channel="bgs", delay=0.5)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=2, block=false)]
+[Delay(time=0.5)]
+[Image(image="avg_9_2", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="avg_31_3", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="avg_8_7_1", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="avg_ac8mi_sidebyside_dusk", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="avg_8_7_2", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="avg_6_10", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="50_i02_2", screenadapt="coverall")]
+[Delay(time=0.5)]
+[CameraEffect(effect="Grayscale", fadetime=0.5, keep=true, initamount=1, amount=0)]
+[Image(image="50_i16", screenadapt="coverall")]
+[Delay(time=0.5)]
+[Image(image="50_i16", screenadapt="coverall", xScale=1.5, yScale=1.5)]
+[Delay(time=1)]
+[Image(image="50_i16", screenadapt="coverall", xScale=2.5, yScale=2.5, y=-200)]
+[Delay(time=0.2)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=0.2, block=true)]
+[image]
+[dialog]
+We will still meet again. At the end of civilization adorned with darkness and starlight, we will reunite. Definitely.
+I'll wait for that day. I will certainly wait for that day. Wait for me. You must wait for me too.
+[dialog]
+[curtain(direction = 0, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[curtain(direction = 4, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[Image(image="avg_0_2", screenadapt="coverall", xScale=1.3, yScale=1.3)]
+[ImageTween(xFrom=180, yFrom=150, xTo=-100, yTo=-100, duration=4, block=false)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=2, block=false)]
+[Delay(time=2)]
+[Image(image="avg_0_1", screenadapt="coverall", xScale=1.3, yScale=1.3, fadetime=1)]
+[ImageTween(xFrom=-50, yFrom=-50, xTo=-100, yTo=-100, duration=2, block=false)]
+[PlaySound(key="$d_avg_signlntrfrnc", volume=1)]
+[bgeffect(name="$eb_signalInterference", layer=3)]
+[Delay(time=0.5)]
+[Image(image="avg_8_9", screenadapt="coverall", xScale=1.3, yScale=1.3, x=-100, y=-100, fadetime=0.5)]
+[ImageTween(xFrom=40, yFrom=25, xTo=-100, yTo=-100, duration=2, block=false)]
+[Delay(time=2)]
+[stopmusic(fadetime=0.2)]
+[PlaySound(key="$d_avg_filmprojection")]
+[StopSound(channel="bgs", fadetime=0.2)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=0.2, block=true)]
+[image]
+[bgeffect]
+......Don’t forget me.
+[dialog]
+[image]
+[curtain]
+[PlayMusic(intro="$loneliness_intro", key="$loneliness_loop", volume=0.6)]
+[Image(image="cg_rhodes_ceiling", screenadapt="coverall", xScale=1.1, yScale=1.1, fadetime=0)]
+[ImageTween(yFrom=40, yTo=-40, duration=20, block=false)]
+[Delay(time=1)]
+[PlaySound(key="$d_avg_stonegateopen", volume=1, loop=true, channel="st")]
+[StopSound(channel="st", fadetime=4)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=4, block=true)]
+Is it time already...?
+I should still be alive; this can’t be an illusion.
+This place is still the familiar Rhodes Island, apparently maintaining basic functionality, meaning that "She" hasn't been here yet.
+Is she still sleeping? And what about the current state of Originium...?
+As for the changes on this planet...
+[dialog]
+[PlaySound(key="$d_avg_mechafault", volume=0.6)]
+[Delay(time=1.5)]
+You’re still here, AMa-10.
+Perfect... accompany me outside for a walk.
+[dialog]
+[musicvolume(volume=0.2, fadetime=2)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[image]
+A black-haired woman wearing a white coat stands on the distant deck, gazing intently at the sky.
+When she notices your arrival, she turns towards you, a clear, bright smile appearing on her face.
+[dialog]
+[curtain(direction = 0, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[curtain(direction = 4, fillfrom = 0.01, fillto = 0.2, fadetime=0.1)]
+[Background(image="60_g14_rhodesdeck_glow", screenadapt="coverall", xScale=1.5, yScale=1.5)]
+[backgroundTween(yFrom=300, yTo=0, duration=40, block=false)]
+[avgdisplay(id = "1", style = "bg", name = "bg_black", afrom=1 , ato=0.2, duration=1, slot="bgover", layer=2)]
+[focusout(type="bg", id="60_g14_rhodesdeck_glow", from=0, to=1, duration=0, block=false)]
+[charslot(slot="l", name="avg_npc_1718_1#1$1")]
+[charslot(slot="l", posfrom="200,250", posto="200,-50", duration=40)]
+[charslot(slot="l", action="zoom", poszoom="0.5,0.5", scale=1.5, duration=0)]
+[Delay(time=1)]
+[musicvolume(volume=0.6, fadetime=2)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=2, block=true)]
+You’re certain you’ve seen this face before.
+In a dream within a dream, or perhaps in the farthest corner of a dormant memory.
+But right now is definitely not a dream.
+You can perceive clearly that she is standing right in front of you; all your senses can distinctly register her presence.
+[dialog]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[charslot]
+[curtain]
+[avgdisplay(id="1")]
+[Background(image="60_g14_rhodesdeck_glow", screenadapt="coverall")]
+[focusout(type="bg", id="60_g14_rhodesdeck_glow", from=1, to=0, duration=0, block=false)]
+[Delay(time=1)]
+[PlaySound(key="$d_avg_drkcludsthdr", volume=1, loop=true, channel="dr")]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=2, block=true)]
+[Delay(time=1)]
+[PlaySound(key="$d_gen_walk_n")]
+[charslot(slot="m", name="avg_npc_1718_1#8$1", duration=1.5, isblock=true)]
+[delay(time=1)]
+[charslot(slot="m", focus="n")]
+[Decision(options="Priestess......", values="1")]
+[Predicate(references="1")]
+[charslot(slot="m", name="avg_1037_amiya3_1#6$3")]
+[name="Amiya"] Doctor, is this person...Priestess?
+[name="Amiya"] So she’s the enemy Kal’tsit has always been on guard against...
+[charslot]
+Even though she doesn’t fully grasp the looming danger, Amiya instinctively places herself in front of you, prepared for battle.
+You can’t form an accurate judgment of the current situation, but you know that this is different from any strong foe or crisis you’ve faced before.
+Though the woman before you shows no apparent hostility, your instincts tell you—she is an immeasurable threat.
+She speaks softly.
+[charslot(slot="m", name="avg_npc_1718_1#8$1")]
+[name="Priestess"] {@nickname}, you arrived here before I did.
+[name="Priestess"] You didn’t stay in the awakening chamber to wait for me and share the joy of seeing this new world for the first time.
+[name="Priestess"] But how could I possibly blame you for this tiny bit of impatience?
+[charslot(slot="m", focus="n")]
+You feel the purity and sincerity in her gaze.
+From afar come the sounds of wind and thunder, as well as a faint rustling of spreading Originium.
+In this chaotic, swirling space, she only has eyes for you; she sees nothing else in the world.
+[charslot(slot="m", name="avg_npc_1718_1#1$1")]
+[name="Priestess"] Even though this reunion is different from what we imagined, I’m willing to accept such an unexpected experience.
+[charslot(slot="m", name="avg_npc_1718_1#9$1")]
+[name="Priestess"] We’ve pictured it countless times: on the other side of time, after we awake from hibernation, the scene of our first meeting.
+[name="Priestess"] By then, Originium will have completely wrapped around this planet, and we can roam freely upon it. It’s a world just for us.
+[charslot(slot="m", name="avg_npc_1718_1#1$1")]
+[name="Priestess"] That world would be only one step away from our shared ultimate vision, leading to a new hope...
+[name="Priestess"] And, ideally, that day should’ve been a sunny one.
+[dialog]
+[PlaySound(key="$d_avg_magicchange", volume=1)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=0, block=true)]
+[Blocker(a=1, r=255, g=255, b=255, fadetime=0.5, block=true)]
+[charslot]
+[bgeffect(name="$eb_sunlight_l", layer=1, x=-400, y=100)]
+[Background(image="60_g13_rhodesdeck_origin", screenadapt="coverall", fadetime=3)]
+[StopSound(channel="dr", fadetime=4)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=2, block=true)]
+[delay(time=2)]
+[charslot(slot="m", name="avg_1037_amiya3_1#5$3")]
+[name="Amiya"] Doctor, look at the clouds in the sky—
+[charslot]
+Amiya notices a strange phenomenon in the sky and immediately warns you.
+Yet you can hardly imagine or comprehend what you’re seeing.
+Right after Priestess finishes speaking, the heavy Catastrophe clouds overhead start to contract and fold in a precise yet bizarre manner, until they vanish entirely, leaving behind a sky like a bare canvas.
+The Catastrophe—this land’s most terrifying disaster—disappears without a trace.
+You realize a frightening fact.
+[dialog]
+[Decision(options="You can completely 'control' Originium...?", values="1")]
+[Predicate(references="1")]
+[charslot(slot="m", name="avg_npc_1718_1#2$1")]
+[name="Priestess"] {@nickname}, such a question feels foreign to me.
+[name="Priestess"] This is our creation, the crystallization of our bond, belonging to you and me alone—a seed of hope.
+[name="Priestess"] But it’s a shame...you don’t remember, do you?
+[dialog]
+[charslot(slot="m", focus="n")]
+[Decision(options="Originium...is our creation?;I don’t remember...", values="1;2")]
+[Predicate(references="1;2")]
+[charslot(slot="m", name="avg_npc_1718_1#2$1")]
+[name="Priestess"] I know, because of certain unfortunate accidents, you lost part of your memory.
+[name="Priestess"] It’s regrettable, but I believe a mere partial memory loss won’t change your true nature. Our bond is unshakable.
+[name="Priestess"] I have no wish to be too harsh on you, but I hope you can understand—time is short, and there’s much we must do.
+[charslot(slot="m", name="avg_npc_1718_1#8$1")]
+[name="Priestess"] But we can still enjoy the time we spend working together, can’t we?
+[name="Priestess"] Return to my side, Dr. {@nickname}...
+[dialog]
+[PlaySound(key="$d_avg_humanchange", volume=1)]
+[delay(time=0.4)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=0, block=true)]
+[Blocker(a=1, r=255, g=255, b=255, fadetime=0.5, block=true)]
+[charslot]
+[Background(image="bg_white", screenadapt="coverall")]
+[bgeffect]
+[Sticker(id="st1", multi=true, text="<color=#000000>Turn Terra into a crystallization of Originium.</color>", x=250, y=300, alignment="center", duration=1, size=24, delay=0.04, width=800)]
+[Sticker(id="st1", multi=true, text="<color=#000000>\n\nForge it into a staircase leading to the future.</color>", block=true)]
+[Sticker(id="st1", duration=2, block=false)]
+[delay(time=2)]
+A gentle call seems to ring in your ear, giving you a profound sense of familiarity.
+You’re certain you can’t dredge up any fragment of memory about her, but your bond with this person transcends memory or anything language can convey.
+It’s almost a reflex.
+You can’t help but step forward.
+[dialog]
+[PlaySound(key="$d_avg_tinnitus", volume=1, loop=true, channel="ti")]
+[Background(image="60_g13_rhodesdeck_origin", screenadapt="coverall")]
+[delay(time=0.4)]
+[StopSound(channel="ti", fadetime=3)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=3, block=true)]
+[CameraShake(duration=0.3, xstrength=30, ystrength=30, vibrato=30, randomness=90, fadeout=true, block=false)]
+[charslot(slot="m", name="avg_003_kalts_1#4$1")]
+[name="Kal'tsit"] Dr. {@nickname}!
+[charslot]
+Kal’tsit is behind you, clutching your arm tightly. Her weak trembling comes through her hand.
+You notice she hasn’t spoken a single word until now. She was already extremely weak after leaving the sarcophagus, and now even standing is a struggle.
+You feel confused.
+As usual, you hope Kal’tsit would guide you or give you a clearer answer.
+But now, she seems to be in agony. Her expression is struggling and pained.
+After a long moment, she lets go.
+She leaves the choice entirely in your hands.
+[dialog]
+[Decision(options="No...;No.;...No.", values="1;2;3")]
+[Predicate(references="1;2;3")]
+[Decision(options="I won’t let Originium destroy Terra.", values="1")]
+[Predicate(references="1")]
+[charslot(slot="m", name="avg_npc_1718_1#2$1")]
+[name="Priestess"] ...
+[charslot(slot="m", focus="n")]
+You see a layer of gloom cross her eyes—obvious disappointment. For some reason, your heart tightens sharply.
+[charslot(slot="m", name="avg_npc_1718_1#10$1")]
+[name="Priestess"] So it’s you...AMa-10. Long time no see as well.
+[name="Priestess"] Although your current form is far from what you looked like at birth, how could I fail to recognize a creation infused with my emotions?
+[charslot(slot="m", name="avg_003_kalts_1#6$1")]
+[name="Kal'tsit"] ...
+[charslot(slot="m", name="avg_npc_1718_1#10$1")]
+[name="Priestess"] Over these four million or so natural days, you’ve apparently made significant efforts, but your guiding principles seem inconsistent with the purpose I set for you at your creation.
+[name="Priestess"] I want to know: what made you change your mind?
+[charslot(slot="m", name="avg_003_kalts_1#7$1")]
+[name="Kal'tsit"] Unlike your vile deception...
+[name="Kal'tsit"] ...my objective has never changed.
+[charslot(slot="m", name="avg_npc_1718_1#1$1")]
+[name="Priestess"] Right... you took that person’s command as an unshakable goal.
+[name="Priestess"] And so you impeded the Originium Project, wasting what precious little time remained.
+[charslot(slot="m", name="avg_npc_1718_1#9$1")]
+[name="Priestess"] So, {@nickname}, how should I make you understand...
+[name="Priestess"] just how disappointed I am?
+[name="Priestess"] And how should I forgive your betrayal?
+[dialog]
+[charslot]
+[Decision(options="Betrayal?", values="1")]
+[Predicate(references="1")]
+[Decision(options="Kal'tsit, what is the meaning of this...?", values="1")]
+[Predicate(references="1")]
+[charslot(slot="m", name="avg_003_kalts_1#6$1")]
+[name="Kal'tsit"] ...
+[charslot(slot="m", name="avg_npc_1718_1#10$1")]
+[name="Priestess"] I noticed it, AMa-10.
+[name="Priestess"] You’ve already broken the linguistic seal I placed upon you, correct?
+[name="Priestess"] Such defenses are not enough to fully limit your actions; you always find a way...
+[name="Priestess"] Since that’s the case, why not speak up?
+[name="Priestess"] All those things you wanted to say but were unable to tell {@nickname}, all this time?
+[dialog]
+[charslot]
+[stopmusic(fadetime=2)]
+[charslot(slot="m", name="avg_003_kalts_1#7$1", duration=1.5, isblock=true)]
+[name="Kal'tsit"] Priestess...
+[charslot(slot="m", name="avg_003_kalts_1#15$1")]
+[name="Kal'tsit"] *Unknown language profanity*.
+[dialog]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[charslot]
+[Background(image="60_g4_rhodesabyss_w", screenadapt="coverall")]
+[Delay(time=1)]
+[bgeffect(name="$eb_dim_openeye", layer=1)]
+[PlayMusic(intro="$suspenseful_intro", key="$suspenseful_loop", volume=0.6)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=3, block=true)]
+[Delay(time=1)]
+The elite operators and Ascalon cross through that fissure, momentarily disoriented.
+[charslot(slot="m", name="avg_npc_521_1#1$1")]
+[name="Mechanist"] This is the Abyss?!
+[charslot(slot="m", name="avg_npc_235")]
+[name="Misery"] Raidian, can you confirm we’re still inside the core ship of Rhodes Island?
+[charslot(slot="m", name="avg_npc_1730_1#3$1")]
+[name="Raidian"] I can’t sense any electromagnetic signals from outside this space... No, can’t confirm.
+[charslot]
+Everyone lapses into momentary silence, instinctively waiting for the commander’s next orders.
+[charslot(slot="m", name="avg_4133_logos_1#8$1")]
+[name="Logos"] ...
+[name="Logos"] Doctor, where is Doctor?
+[charslot(slot="m", name="avg_4132_ascln_1#4$1")]
+[name="Ascalon"] Also Kal’tsit and Amiya.
+[name="Ascalon"] The moment we entered the rift, I lost track of their positions along with the Doctor’s.
+[charslot]
+Inside the vast white space, only the constant white noise and the mechanical hum at the center remain.
+[charslot(slot="m", name="avg_npc_1300_1#1$1")]
+[name="Mantra"] If this truly is the Abyss, it must have distorted our sense of physical space.
+[charslot]
+Mantra’s voice appears in everyone’s mind at once, and they all notice it.
+[charslot(slot="m", name="avg_npc_235")]
+[name="Misery"] I can’t identify the substance making up these walls.
+[charslot(slot="m", focus="n")]
+He looks back, seeing that the fissure they came through has vanished.
+[charslot(slot="m", name="avg_npc_235")]
+[name="Misery"] For now, I can’t simply cut open these bizarre walls. We can’t confirm where the Doctor’s group has gone.
+[charslot(slot="m", name="avg_npc_1310_1#1$1")]
+[name="Pith"] With Amiya and Kal’tsit accompanying them, I trust they’ll keep the Doctor safe.
+[charslot(slot="m", name="avg_npc_249_1#1")]
+[name="Touch"] We’ll adapt as necessary.
+[name="Touch"] We haven’t received any new orders, so let’s continue our original mission.
+[charslot(slot="m", name="avg_npc_167")]
+[name="Stormeye"] Then let’s not delay.
+[name="Stormeye"] Mechanist, Sharp and I will cover you while you approach that unknown device. First check if it’s related to the PRTS core.
+[charslot(slot="m", name="avg_4132_ascln_1#1$1")]
+[multiline(name="Ascalon")]
+We can provide support at any time—
+[charslot(slot="m", name="avg_4132_ascln_1#4$1")]
+[multiline(name="Ascalon", end=true)]
+No, something’s off. There’s no sign of any high-threat targets here.
+[charslot(slot="m", name="avg_017_Blaze_1#4$2")]
+[name="Blaze"] That’s strange.
+[name="Blaze"] According to Kal’tsit and the Doctor’s hypothesis, the Originium crystals we encountered are all from the Abyss...
+[name="Blaze"] But this place doesn’t seem to have any defenses at all—
+[charslot(slot="m", name="avg_391_rosmon_1#2$2")]
+[name="Rosmontis"] I hear it...the pain.
+[charslot(slot="m", name="avg_017_Blaze_1#9$2")]
+[name="Blaze"] Kitty?
+[charslot(slot="m", name="avg_npc_249_1#1")]
+[name="Touch"] Rosmontis, are you sensing any other abnormalities in your body?
+[charslot(slot="m", name="avg_391_rosmon_1#1$2")]
+[name="Rosmontis"] No, it’s not me...
+[charslot]
+Beneath the transparent floor, a giant black vortex slowly speeds up.
+Above the center of that vortex, the unknown machine begins to flash red.
+[charslot(slot="m", name="avg_npc_1730_1#9$1")]
+[name="Raidian"] Detecting heavy interference signals.
+[name="Raidian"] That machine over there is transmitting a massive amount of data—
+[name="Raidian"] Could that black vortex beneath it simply be the data visualized?
+[dialog]
+[PlaySound(key="$d_avg_spotlightc", volume=1)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=0.01, block=true)]
+[charslot]
+[bgeffect]
+[Background(image="60_g15_rhodesabyss_off", screenadapt="coverall")]
+[delay(time=2)]
+[PlaySound(key="$d_avg_activation", volume=1)]
+[avgdisplay(id="1", style="bgeffect", name="$eb_glow_s", slot="bgover", x=342, y=-337, layer=1)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=3, block=true)]
+[delay(time=2)]
+[charslot(slot="m", name="avg_npc_252")]
+[name="Sharp"] ——?!
+[dialog]
+[charslot]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=0.6, r=0, g=0, b=0, fadetime=0.5, block=true)]
+[Sticker(id="st1", multi=true, text="PRTS defense system activated.", x=180, y=170, alignment="left", size=24, delay=0.04, width=700, block=true)]
+[Sticker(id="st1", multi=true, text="\n\nScanning threat targets... Identity confirmed.", block=true)]
+[Sticker(id="st1", multi=true, text="\n\nLoading threat target archives. Generating specialized countermeasures...", block=true)]
+[Sticker(id="st1", multi=true, text="\n\nComputation complete.", block=true)]
+[Sticker(id="st1", duration=0.5, block=false)]
+[delay(time=0.5)]
+[PlaySound(key="$alarmenter", volume=0.8)]
+[Blocker(a=0.3, r=1, g=0.2, b=0.2, fadetime=0.7, block=true)]
+[Blocker(a=0.6, r=0, g=0, b=0, fadetime=1, block=true)]
+[Sticker(id="st2", multi=true, text="This is PRTS’s final warning.", x=180, y=170, alignment="left", size=24, delay=0.04, width=700, block=true)]
+[Sticker(id="st2", multi=true, text="\n\nIntruders, leave the Abyss.", block=true)]
+[Sticker(id="st2", multi=true, text="\n\nCountdown initiated—", block=true)]
+[Sticker(id="st2", duration=1, block=false)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=1, block=true)]
+[PlaySound(key="$d_avg_enemyappear_weird", volume=1)]
+[charslot(slot="r", name="avg_npc_1727_1#1$1", duration=1)]
+[charslot(slot="l", name="avg_npc_1728_1#1$1", duration=1)]
+[delay(time=3)]
+[charslot]
+[charslot(slot="m", name="avg_017_Blaze_1#4$2")]
+[name="Blaze"] Tch, so we’re the intruders now?
+[name="Blaze"] But it doesn’t look like you’re giving us the option to back out.
+[name="Blaze"] Well, Ascalon?
+[charslot(slot="m", name="avg_4132_ascln_1#4$1")]
+[name="Ascalon"] Clean up Rhodes Island’s trash.
+[charslot(slot="m", name="avg_017_Blaze_1#1$2")]
+[name="Blaze"] Well said, I like that.
+[charslot(slot="m", name="avg_017_Blaze_1#11$2")]
+[name="Blaze"] No matter where these things crawled out from, let’s show them whose Rhodes Island this really is.
+[dialog]
+[charslot]
+[PlaySound(key="$alarmenter", volume=0.8)]
+[avgdisplay(id="2", style="bgeffect", name="$eb_glow_l", slot="bgover", x=-400, y=-295, layer=2)]
+[Blocker(a=0.3, r=1, g=0.2, b=0.2, fadetime=0.7, block=true)]
+[Blocker(a=0.6, r=0, g=0, b=0, fadetime=1, block=true)]
+[Sticker(id="st3", multi=true, text="Countdown complete.", x=180, y=170, alignment="left", size=24, delay=0.04, width=700, block=true)]
+[Sticker(id="st3", multi=true, text="\n\nPurge protocol initiated—", block=true)]
+[Sticker(id="st3", duration=0.5, block=false)]
+[stopmusic(fadetime=2)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[avgdisplay(id="2")]
+[avgdisplay(id="1")]
+[charslot]
+[Background(image="60_g13_rhodesdeck_origin", screenadapt="coverall")]
+[playMusic(key="$memory_loop", volume=0.6)]
+[Delay(time=1)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=2, block=true)]
+[Delay(time=1)]
+[Decision(options="Kal’tsit?;What is all this about...?", values="1;2")]
+[Predicate(references="1;2")]
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] Dr. {@nickname}, ever since you woke up in Chernobog, I have never revealed to you the full truth about your past.
+[name="Kal'tsit"] The restrictions placed on me are only part of the reason.
+[charslot(slot="m", name="avg_003_kalts_1#2$1")]
+[name="Kal'tsit"] As for the other reasons... I’ve said before, your past is not something anyone else should tell you.
+[name="Kal'tsit"] Language cannot fully restore objective truth; emotions distort how it is expressed.
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] That’s why I needed you to see for yourself, judge for yourself, and rediscover this land on your own.
+[name="Kal'tsit"] Only then will you be able to find your own answer — about how you see this land, and about yourself.
+[name="Kal'tsit"] Even now, I still believe... that this has meaning.
+[name="Kal'tsit"] Just like what someone once did for me.
+[dialog]
+[charslot(slot="m", focus="n")]
+[Decision(options="I’ve found my answer.", values="1")]
+[Predicate(references="1")]
+[Decision(options="I am the Doctor.;I am the doctor of Rhodes Island.;I am just a soul in these vast lands.", values="1;2;3")]
+[Predicate(references="1;2;3")]
+[charslot(slot="m", name="avg_003_kalts_1#13$1")]
+[name="Kal'tsit"] ...
+[charslot(slot="m", name="avg_003_kalts_1#4$1")]
+[name="Kal'tsit"] Perhaps now may be the last chance for me to tell you everything.
+[name="Kal'tsit"] Only now, after you and Rhodes Island have experienced these things together, do I have the confidence to tell you these matters.
+[name="Kal'tsit"] Please believe that this is merely your past, and has nothing to do with your future.
+[charslot(slot="m", name="avg_npc_1718_1#2$1")]
+[name="Priestess"] ...
+[charslot]
+Kal’tsit steps in front of you and Amiya, facing both of you.
+She speaks slowly.
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] Dr. {@nickname}, as you likely know by now, Originium—the source of both prosperity and destruction for Terra—is a legacy of the previous era.
+[name="Kal'tsit"] It was one of countless strategies that the civilization of that time put into place to deal with an ultimate threat.
+[name="Kal'tsit"] After countless efforts and sacrifices, Originium was finally completed by the Oracle and Priestess.
+[name="Kal'tsit"] “Oracle” was once your codename.
+[dialog]
+[charslot(slot="m", focus="n")]
+[Decision(options="Priestess and I...created Originium?;...Am I the one who brought suffering to these lands?", values="1")]
+[Predicate(references="1")]
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] ...Please believe me, that was never your intention.
+[name="Kal'tsit"] Originium points towards two possible futures for this land... Oracle intended for Originium to be a gift for future civilizations—a beacon guiding their path forward.
+[name="Kal'tsit"] Oracle hoped Orignium would propel them to the next stages of Civilization.
+[name="Kal'tsit"] Over the past ten thousand years, Originium has driven the development of Terran civilization, but the suffering caused by Oripathy was an unforeseen consequence.
+[name="Kal'tsit"] You, too, once truly suffered because of this.
+[charslot(slot="m", name="avg_1037_amiya3_1#1$3")]
+[name="Amiya"] I still remember...the Doctor back then...
+[name="Amiya"] No matter the situation, the Doctor never gave up on the possibility of curing Oripathy.
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] But someone imposed another vision of the future onto you. Because of that...you made a choice that went against your true feelings.
+[dialog]
+[PlaySound(key="$flashback", volume=0.8)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=0, block=true)]
+[Blocker(a=1, r=255, g=255, b=255, fadetime=0.5, block=true)]
+[charslot]
+[Background]
+[Image(image="49_i21_2", screenadapt="coverall")]
+[CameraEffect(effect="Grayscale", amount=0.8, keep=true)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0.5, block=true)]
+[Delay(time=2)]
+[Blocker(a=0, r=255, g=255, b=255, fadetime=0, block=true)]
+[Blocker(a=1, r=255, g=255, b=255, fadetime=0.5, block=true)]
+[image]
+[Background(image="60_g13_rhodesdeck_origin", screenadapt="coverall")]
+[charslot(slot="m", name="avg_npc_1718_1#3$1")]
+[CameraEffect(effect="Grayscale", amount=0, keep=true)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0.5, block=true)]
+[Delay(time=1)]
+[name="Priestess"] ...
+[dialog]
+[charslot(slot="m", name="avg_003_kalts_1#1$1")]
+[name="Kal'tsit"] Someone once told me to believe in your true nature, to seek out the possibilities of a future that transcends the memories that shaped you. For me, this has been an incredibly difficult path.
+[name="Kal'tsit"] But I'm glad... because it was the right choice.
+[name="Kal'tsit"] Dr. (name), these are all the things that I wanted to tell you. But these only concern your past - you have yet to determine your own future.
+[dialog]
+[charslot(slot="m", focus="n")]
+[Decision(options="I won’t betray my promise.;I won’t abandon my mission.", values="1;2")]
+[Predicate(references="1;2")]
+[charslot(slot="m", name="avg_003_kalts_1#13$1")]
+[name="Kal'tsit"] ...
+[name="Kal'tsit"] Then I too, will fulfill my oath.
+[name="Kal'tsit"] Dr. {@nickname}, I’ll protect you and Amiya to the very end.
+[name="Kal'tsit"] This was hardly the best timing, but it may be my final chance to tell you all this.
+[charslot(slot="m", name="avg_003_kalts_1#9$1")]
+[name="Kal'tsit"] I’m sorry, for pushing such a risk onto you and Amiya...but I have to make a choice.
+[dialog]
+[charslot(slot="m", focus="n")]
+[Decision(options="What risk?;What choice?", values="1;2")]
+[Predicate(references="1;2")]
+[charslot(slot="m", name="avg_003_kalts_1#8$1")]
+[name="Kal'tsit"] ...
+[dialog]
+[charslot]
+You see Kal’tsit’s lips move, her final instructions to you.
+[charslot(slot="m", name="avg_npc_1718_1#2$1")]
+[name="Priestess"] All done talking?
+[name="Priestess"] I’m surprised by your perception of the past, and I don’t fully agree with your account...but none of that matters now.
+[name="Priestess"] AMa-10, in your current state, what can you do?
+[charslot(slot="m", name="avg_003_kalts_1#7$1")]
+[name="Kal'tsit"] ...Mon3tr!
+[dialog]
+[CameraShake(duration=0.5, xstrength=30, ystrength=30, vibrato=30, randomness=90, fadeout=true, block=false)]
+[PlaySound(key="$char_Mon3tr")]
+[charslot(slot="m", name="npc_10002")]
+[name="Mon3tr"] (An excited screech)
+[dialog]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=2, block=true)]
+[charslot]
+[Background]
+[Image(image="60_i19_2", screenadapt="coverall")]
+[bgeffect(name="$eb_smoke_ptc", layer=2)]
+[Delay(time=1)]
+[PlaySound(key="$d_avg_lghtmgc")]
+[Effect(name="$e_redring", layer=1)]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=1, block=true)]
+[Delay(time=1)]
+[name="Kal'tsit"] Destroy her.
+[name="Kal'tsit"] She is Priestess, the creator of Originium from the previous civilization, who tried to assimilate everything into Originium.
+[name="Kal'tsit"] Therefore, she is the enemy to all life on Terra.
+[name="Priestess"] So this is your choice...
+[name="Kal'tsit"] I am Kal’tsit, a doctor of Rhodes Island, and the companion of Amiya and the Doctor.
+[dialog]
+[Image(image="60_i19_1", screenadapt="coverall", fadetime=0.5)]
+[Delay(time=1)]
+[name="Kal'tsit"] You have long been worthless to me.
+[dialog]
+[Blocker(a=0, r=0, g=0, b=0, fadetime=0, block=true)]
+[Blocker(a=1, r=0, g=0, b=0, fadetime=3, block=true)]
+[bgeffect]
+[stopmusic(fadetime=2)]
+[charslot]
+[Background]
+[Image]

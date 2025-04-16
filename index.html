@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Arknights Story Viewer</title>
+    <link rel="icon" href="assets/icon_avg.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="navbar">
+        <div id="logo">Arknights Story Viewer</div>
+
+        <div id="navbar-right">
+            <select id="language-select" class="scene-select">
+                <option value="en_US">EN</option>
+                <option value="ja_JP">JP</option>
+                <option value="ko_KR">KR</option>
+                <option value="zh_CN">CN</option>
+              </select>
+              
+            <select id="story-select" class="scene-select"></select>
+            <select id="chapter-select" class="scene-select"></select>
+            <button id="load-scene">Load scene</button>
+            <button id="fullscreenButton">Fullscreen</button>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="game-container">
+            <div id="scene-container">
+                <div id="background"></div>
+                <div id="blocker"></div>
+    
+                <div id="subtitle"></div>
+    
+                <div id="character-container">
+                    <div id="character-left" class="character-slot"></div>
+                    <div id="character-middle" class="character-slot"></div>
+                    <div id="character-right" class="character-slot"></div>
+                </div>
+    
+                <div id="dialog-container" class="hidden">
+                    <div id="dialog-top"></div>
+                    <div id="dialog-bottom">
+                        <div id="dialog-speaker"></div>
+                        <div id="dialog-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="story.js"></script>
+    
+</body>
+</html>
