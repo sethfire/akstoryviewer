@@ -11,9 +11,11 @@ const gameState = {
     dialogTop: null,
     subtitle: null,
 
-    currentText: "",
-    textSpeed: 35,
+    isTyping: false,
     typingTimeout: null,
+    currentText: "",
+    currentTextElement: null,
+    typingIndex: 0,
 
     isWaitingForInput: false,
     isLocked: false,
@@ -70,8 +72,6 @@ const gameEngine = {
         const entry = gameState.lines[gameState.currentLine++];
         if (!entry) return;
 
-        gameState.isWaitingForInput = false;
-
         renderLine(entry);
 
         if (gameState.isWaiting) {
@@ -89,16 +89,16 @@ const gameEngine = {
     },
 
     userAction() {
-        if (!gameState.isLocked) {
-            if (gameState.isTyping) {
+        if (gameState.isTyping) {
 
-                clearTimeout(gameState.typingTimeout);
-                gameState.dialogText.innerHTML = gameState.currentText;
-                gameState.isTyping = false;
+            clearTimeout(gameState.typingTimeout);
+            gameState.dialogText.innerHTML = gameState.currentText;
+            gameState.isTyping = false;
 
-            } else {
-                this.nextLine();
-            }
+        }
+        else if (gameState.isWaitingForInput && !gameState.isLocked){
+            gameState.isWaitingForInput = false;
+            this.nextLine();
         }
     },
 
@@ -160,6 +160,28 @@ const gameEngine = {
     }
 };
 
+
+function textWriter(element, text, speed = 35, callback = null) {
+    element.innerHTML = "";
+    gameState.currentText = text;
+    gameState.currentTextElement = element;
+    gameState.typingIndex = 0;
+    gameState.isTyping = true;
+
+    function type() {
+        if (gameState.typingIndex < gameState.currentText.length) {
+            gameState.currentTextElement.innerHTML += gameState.currentText.charAt(gameState.typingIndex);
+            gameState.typingIndex++;
+            gameState.typingTimeout = setTimeout(type, speed);
+        } else {
+            gameState.isTyping = false;
+            if (callback) callback();
+        }
+    }
+
+    type();
+}
+
 function loadScript(scriptURL) {
     console.log(`Fetching script "${scriptURL}"...`);
   
@@ -200,6 +222,26 @@ function parseScriptLine(line) {
         return {
             type: eventType,
             data: {
+                ...parsedParams
+            }
+        };
+    }
+    
+    const eventMatch2 = line.match(/^\[(\w+)(?:\((.*)\))?\]\s*(.+)$/);
+    if (eventMatch2) {
+        const eventType = eventMatch2[1].toLowerCase();
+        const rawParams = eventMatch2[2] || "";
+        const content = eventMatch2[3] || "";
+        
+        let parsedParams = {};
+        if (rawParams) parsedParams = parseEventParams(rawParams);
+        
+        console.log(`(${eventType}) content="${content}", params="${rawParams}"`);
+
+        return {
+            type: eventType,
+            data: {
+                content,
                 ...parsedParams
             }
         };
@@ -264,7 +306,7 @@ function renderLine(entry) {
     
                 gameState.dialogContainer.classList.remove('hidden');
                 gameState.dialogSpeaker.textContent = entry.data.speaker;
-                typeWriter(gameState.dialogText, entry.data.text);
+                textWriter(gameState.dialogText, entry.data.text);
 
                 gameState.isWaitingForInput = true;
             } else {
@@ -277,7 +319,7 @@ function renderLine(entry) {
 
             gameState.dialogContainer.classList.remove('hidden');
             gameState.dialogSpeaker.textContent = "";
-            typeWriter(gameState.dialogText, entry.data.text);
+            textWriter(gameState.dialogText, entry.data.text);
 
             gameState.isWaitingForInput = true;
             break;
@@ -288,7 +330,7 @@ function renderLine(entry) {
 
             gameState.dialogContainer.classList.remove('hidden');
             gameState.dialogSpeaker.textContent = "Doctor";
-            typeWriter(gameState.dialogText, "(Choice) " + entry.data.options);
+            textWriter(gameState.dialogText, "(Choice) " + entry.data.options);
 
             gameState.isWaitingForInput = true;
             break;
@@ -299,7 +341,7 @@ function renderLine(entry) {
     
                 gameState.dialogContainer.classList.remove('hidden');
                 gameState.dialogSpeaker.textContent = "";
-                typeWriter(gameState.dialogText, entry.data.text);
+                textWriter(gameState.dialogText, entry.data.text);
     
                 gameState.isWaitingForInput = true;
             }
@@ -313,7 +355,7 @@ function renderLine(entry) {
             // console.log(`Loading subtitle "${entry.data.text}"`);
 
             // gameState.subtitle.classList.remove('hidden');
-            // typeWriter(gameState.subtitle,entry.data.text);
+            // textWriter(gameState.subtitle,entry.data.text);
 
             // gameState.isWaitingForInput = true;
             // break;
@@ -533,26 +575,6 @@ function renderLine(entry) {
         default:
             console.log("Unhandled entry type:", entry.type);
     }
-}
-
-function typeWriter(element, text, onComplete = () => {}) {
-    element.innerHTML = "";
-    gameState.currentText = text;
-    gameState.isTyping = true;
-
-    let i = 0;
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text[i++];
-            gameState.typingTimeout = setTimeout(type, gameState.textSpeed);
-        } else {
-            gameState.isTyping = false;
-            onComplete();
-        }
-    }
-
-    type();
 }
 
 function getBackgroundURL(name) {
@@ -786,16 +808,16 @@ window.addEventListener("hashchange", () => {
     console.log("Hash:", window.location.hash);
 });
 
-document.getElementById('fullscreenButton').addEventListener('click', () => {
+document.getElementById('fullscreen-button').addEventListener('click', () => {
     if (!document.fullscreenElement) {
         document.getElementById('game-container').requestFullscreen()
-        .catch(err => {
-          console.error(`Error attempting fullscreen: ${err.message}`);
+        .catch(error => {
+          console.error(`Error attempting fullscreen: ${error.message}`);
         });
     } else {
       document.exitFullscreen()
-        .catch(err => {
-          console.error(`Error exiting fullscreen: ${err.message}`);
+        .catch(error => {
+          console.error(`Error exiting fullscreen: ${error.message}`);
         });
     }
 });
