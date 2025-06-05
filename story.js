@@ -659,7 +659,12 @@ function getAudioURL(name) {
         return "assets/m_sys_act1mainss_intro.wav"
     } else {
         const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
-        return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
+        if(gameState.storyVariables[name]) {
+            return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
+        }
+        else {
+            return null;
+        }
     }
 }
 
