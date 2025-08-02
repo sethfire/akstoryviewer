@@ -267,7 +267,9 @@ function parseScriptLine(line) {
         }
     };
 
-    // Note: support for multiline needed
+    // older wait format: [delay=1] need to account for this
+
+    // multiline
     // [multiline(name="Babel Member")]Gah—
     // [multiline(name="Babel Member", end=true)]...The explosions stopped?
 }
@@ -648,19 +650,9 @@ function getCharacterURL(name) {
 }
 
 function getAudioURL(name) {
-    //temp
-    if (name === "m_act1mainss_bat1_loop") {
-        return "assets/m_act1mainss_bat1_loop.wav"
-    } else if (name === "m_act1mainss_bat1_intro") {
-        return "assets/m_act1mainss_bat1_intro.wav"
-    } else if (name === "m_sys_act1mainss_loop") {
-        return "assets/m_sys_act1mainss_loop.wav"
-    } else if (name === "m_sys_act1mainss_intro") {
-        return "assets/m_sys_act1mainss_intro.wav"
-    } else {
-        const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
-        return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
-    }
+    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
+    https://github.com/ArknightsAssets/ArknightsAssets2/tree/voice/assets/dyn/audio
+    return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
 }
 
 function loadStoryVariables(url) {
@@ -752,7 +744,7 @@ function loadStoryReviewTable(language) {
             return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ko_KR/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "zh_CN":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/story_review_table.json")
+            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "local":
             return fetch("assets/story/story_review_table.json")
@@ -801,7 +793,7 @@ function getStoryURL(language, script) {
         case "en_US": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/en_US/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ja_JP": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ja_JP/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ko_KR": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ko_KR/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "zh_CN": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "zh_CN": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "local": return "assets/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         default:
             console.error("Unsupported language:", language);
