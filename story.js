@@ -650,9 +650,24 @@ function getCharacterURL(name) {
 }
 
 function getAudioURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
-    https://github.com/ArknightsAssets/ArknightsAssets2/tree/voice/assets/dyn/audio
-    return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
+    //temp
+    if (name === "m_act1mainss_bat1_loop") {
+        return "assets/m_act1mainss_bat1_loop.wav"
+    } else if (name === "m_act1mainss_bat1_intro") {
+        return "assets/m_act1mainss_bat1_intro.wav"
+    } else if (name === "m_sys_act1mainss_loop") {
+        return "assets/m_sys_act1mainss_loop.wav"
+    } else if (name === "m_sys_act1mainss_intro") {
+        return "assets/m_sys_act1mainss_intro.wav"
+    } else {
+        const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
+        if(gameState.storyVariables[name]) {
+            return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
+        }
+        else {
+            return null;
+        }
+    }
 }
 
 function loadStoryVariables(url) {
