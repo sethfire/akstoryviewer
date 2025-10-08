@@ -635,17 +635,17 @@ function renderLine(entry) {
 }
 
 function getBackgroundURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/avg/backgrounds/";
+    const baseURL = "https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets2/refs/heads/cn/assets/dyn/avg/backgrounds/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
 function getImageURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/avg/images/";
+    const baseURL = "https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets2/refs/heads/cn/assets/dyn/avg/images/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
 function getCharacterURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/avg/characters/";
+    const baseURL = "https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets2/refs/heads/cn/assets/dyn/avg/characters/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
