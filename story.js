@@ -635,38 +635,27 @@ function renderLine(entry) {
 }
 
 function getBackgroundURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/avg/backgrounds/";
+    const baseURL = "https://static.closure.wiki/v2/avg/backgrounds/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
 function getImageURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/avg/images/";
+    const baseURL = "https://static.closure.wiki/v2/avg/images/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
 function getCharacterURL(name) {
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/avg/characters/";
+    const baseURL = "https://static.closure.wiki/v2/avg/characters/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
 function getAudioURL(name) {
-    //temp
-    if (name === "m_act1mainss_bat1_loop") {
-        return "assets/m_act1mainss_bat1_loop.wav"
-    } else if (name === "m_act1mainss_bat1_intro") {
-        return "assets/m_act1mainss_bat1_intro.wav"
-    } else if (name === "m_sys_act1mainss_loop") {
-        return "assets/m_sys_act1mainss_loop.wav"
-    } else if (name === "m_sys_act1mainss_intro") {
-        return "assets/m_sys_act1mainss_intro.wav"
-    } else {
-        const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/torappu/dynamicassets/audio/";
-        if(gameState.storyVariables[name]) {
-            return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
-        }
-        else {
-            return null;
-        }
+    const baseURL = "https://github.com/ArknightsAssets/ArknightsAssets2/raw/refs/heads/voice/assets/dyn/audio/";
+    if(gameState.storyVariables[name]) {
+        return baseURL + encodeURIComponent(gameState.storyVariables[name].toLowerCase()) + ".mp3";
+    }
+    else {
+        return null;
     }
 }
 
