@@ -645,9 +645,9 @@ function getImageURL(name) {
 }
 
 function getCharacterURL(name) {
-    // const baseURL = "https://static.closure.wiki/v2/avg/characters/";
+    const baseURL = "https://static.closure.wiki/v2/avg/characters/";
     // sorry, will need to borrow this until i sort out issues on my end
-    const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/avg/characters/";
+    // const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/avg/characters/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
