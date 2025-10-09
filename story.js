@@ -750,7 +750,7 @@ function loadStoryReviewTable(language) {
             return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ko_KR/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "zh_CN":
-            return fetch("https://data.closure.wiki/zh-cn/gamedata/story_review_table.json")
+            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "local":
             return fetch("assets/story/story_review_table.json")
