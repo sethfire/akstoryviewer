@@ -1,11 +1,14 @@
+:root {
+    --text-size-multiplier: 1;
+    --sprite-scale: 1;
+}
+
 body {
     height: 100%;
     margin: 0;
     background-color: black;
-
     display: flex;
     flex-direction: column;
-
     font-family: sans-serif;
 }
 
@@ -13,16 +16,19 @@ body {
     background-color: #333;
     color: white;
     padding: 0 1rem;
-    height: 48px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
 
 #navbar-right {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 #navbar .scene-select {
@@ -32,24 +38,49 @@ body {
 #load-scene,
 #fullscreen-button {
     font-size: 16px;
+    cursor: pointer;
+}
+
+.size-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.control-label {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.size-button {
+    font-size: 14px;
+    padding: 2px 8px;
+    cursor: pointer;
+    border: 1px solid #666;
+    border-radius: 3px;
+    min-width: 32px;
 }
 
 footer {
     height: 60px;
     background-color: #333;
     color: white;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 #logo {
-    /* margin-left: 12px;
-    margin-right: 12px;
-    font-size: 20px; */
     margin: 12px;
     font-size: 20px;
+    white-space: nowrap;
+}
+
+#logo a {
+    color: #4ea1ff;
+    text-decoration: underline;
 }
 
 #main-container {
@@ -82,7 +113,6 @@ footer {
 }
 
 /** SCENE CSS */
-
 #scene-container {
     position: relative;
     width: 100%;
@@ -106,7 +136,6 @@ footer {
 }
 
 /** CHARACTER CSS */
-
 #character-container {
     position: absolute;
     overflow: hidden;
@@ -118,12 +147,15 @@ footer {
 .character-slot {
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -25%);
+    transform: translate(-50%, -25%) scale(var(--sprite-scale));
+    transform-origin: center bottom;
+    transition: transform 0.2s ease;
 }
 
 .character-slot img {
     user-select: none;
     -webkit-user-drag: none;
+    display: block;
 }
 
 .fade-in {
@@ -148,7 +180,7 @@ footer {
 }
 
 .dimmed {
-  filter: brightness(50%);
+    filter: brightness(50%);
 } 
 
 /** DIALOG CSS */
@@ -164,16 +196,13 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-  
     width: 100%;
     height: 100px;
-    
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.8) 0%,
         rgba(0, 0, 0, 0.0) 100%
     );
-    
     transition: opacity 0.1s ease;
 }
 
@@ -181,23 +210,18 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    
     width: 100%;
     height: 25%;
-
     background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.8) 60%,
-      rgba(0, 0, 0, 0.0) 100%
+        to top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0.0) 100%
     );
-
     display: flex;
     gap: clamp(10px, 5vw, 60px);
-  
     padding: clamp(12px, 4vw, 60px) clamp(40px, 15vw, 200px) clamp(20px, 4vw, 40px) clamp(40px, 15vw, 200px);
     box-sizing: border-box;
-    
     color: white;
     transition: opacity 0.1s ease;
 }
@@ -207,37 +231,39 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    
-    font-size: 1.1vw;
+    font-size: calc(clamp(12px, 1.1vw, 20px) * var(--text-size-multiplier));
     color: #777777;
     text-align: right;
     user-select: none;
+    line-height: 1.4;
 }
 
 #dialog-text {
     flex: 3;
     display: flex;
     align-items: flex-start;
-    font-size: 1.1vw;
+    font-size: calc(clamp(12px, 1.1vw, 20px) * var(--text-size-multiplier));
     text-align: left;
     user-select: none;
+    line-height: 1.4;
 }
 
 @media screen and (max-width: 1000px) {
     #navbar {
-        flex-wrap: wrap;
         padding: 0.5rem;
-        height: auto;
     }
   
     #navbar-right {
-        flex-wrap: wrap;
         justify-content: flex-end;
         width: 100%;
     }
   
     #navbar-right select,
     #navbar-right button {
-        width: 100%;
+        min-width: auto;
     }
-  }
+
+    .size-controls {
+        order: 10;
+    }
+}

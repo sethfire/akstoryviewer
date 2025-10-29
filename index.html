@@ -5,43 +5,45 @@
     <title>Arknights Story Viewer</title>
     <link rel="icon" href="assets/icon_avg.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="navbar">
-        <div id="logo">Arknights Story Viewer</div>
-
+    <div id="logo">Arknights Story Viewer (Beta) by Sethfire (<a href="https://github.com/Sethfire/akstoryviewer" target="_blank" rel="noopener noreferrer">GitHub</a>)</div>
         <div id="navbar-right">
             <select id="language-select" class="scene-select">
                 <option value="en_US">EN</option>
-                <!-- <option value="local">EN (TL)</option> -->
                 <option value="ja_JP">JP</option>
                 <option value="ko_KR">KR</option>
                 <option value="zh_CN">CN</option>
-              </select>
-              
+            </select>
             <select id="story-select" class="scene-select"></select>
             <select id="chapter-select" class="scene-select"></select>
             <button id="load-scene">Load scene</button>
+            <div class="size-controls">
+                <span class="control-label">Text:</span>
+                <button id="text-size-decrease" class="size-button" title="Decrease text size">A-</button>
+                <button id="text-size-increase" class="size-button" title="Increase text size">A+</button>
+            </div>
+            <div class="size-controls">
+                <span class="control-label">Sprite:</span>
+                <button id="sprite-size-decrease" class="size-button" title="Decrease sprite size">-</button>
+                <button id="sprite-size-increase" class="size-button" title="Increase sprite size">+</button>
+            </div>
             <button id="fullscreen-button">Fullscreen</button>
         </div>
     </div>
-
     <div id="main-container">
         <div id="game-container">
             <div id="scene-container">
                 <div id="background"></div>
                 <div id="blocker"></div>
-    
                 <div id="subtitle"></div>
-    
                 <div id="character-container">
                     <div id="character-left" class="character-slot"></div>
                     <div id="character-middle" class="character-slot"></div>
                     <div id="character-right" class="character-slot"></div>
                 </div>
-    
                 <div id="dialog-container" class="hidden">
                     <div id="dialog-top"></div>
                     <div id="dialog-bottom">
@@ -52,8 +54,6 @@
             </div>
         </div>
     </div>
-
     <script src="story.js"></script>
-    
 </body>
 </html>

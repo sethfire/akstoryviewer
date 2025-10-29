@@ -635,19 +635,17 @@ function renderLine(entry) {
 }
 
 function getBackgroundURL(name) {
-    const baseURL = "https://static.closure.wiki/v2/avg/backgrounds/";
-    return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
+    const baseURL = "https://static.closure.wiki/v2/preview/avg/backgrounds/";
+    return baseURL + encodeURIComponent(name.toLowerCase()) + ".webp";
 }
 
 function getImageURL(name) {
-    const baseURL = "https://static.closure.wiki/v2/avg/images/";
-    return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
+    const baseURL = "https://static.closure.wiki/v2/preview/avg/images/";
+    return baseURL + encodeURIComponent(name.toLowerCase()) + ".webp";
 }
 
 function getCharacterURL(name) {
     const baseURL = "https://static.closure.wiki/v2/avg/characters/";
-    // sorry, will need to borrow this until i sort out issues on my end
-    // const baseURL = "https://raw.githubusercontent.com/akgcc/arkdata/main/assets/avg/characters/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
@@ -752,9 +750,6 @@ function loadStoryReviewTable(language) {
         case "zh_CN":
             return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/excel/story_review_table.json")
             .then(response => response.json());
-        case "local":
-            return fetch("assets/story/story_review_table.json")
-            .then(response => response.json());
         default:
             console.error("Unsupported language:", language);
             return null;
@@ -801,7 +796,6 @@ function getStoryURL(language, script) {
         case "ja_JP": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ja_JP/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ko_KR": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ko_KR/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "zh_CN": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "local": return "assets/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         default:
             console.error("Unsupported language:", language);
             return null;
@@ -809,26 +803,80 @@ function getStoryURL(language, script) {
 
 }
 
-/**
- * only 2 states - player input allowed, player input not allowed
- * 
- * player input only after dialog type 
- * disable player input immediately after inputting
- * in the event of an error, we need an override though
- * how to detect this?
- */
+const sizeControls = {
+    textSizes: [0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 1.7, 2.0],
+    spriteSizes: [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5],
+    currentTextIndex: 3, // default to 1.0
+    currentSpriteIndex: 5, // default to 1.0
+
+    init() {
+        const savedTextIndex = localStorage.getItem('textSizeIndex');
+        const savedSpriteIndex = localStorage.getItem('spriteSizeIndex');
+        
+        if (savedTextIndex !== null) {
+            this.currentTextIndex = parseInt(savedTextIndex);
+        }
+        if (savedSpriteIndex !== null) {
+            this.currentSpriteIndex = parseInt(savedSpriteIndex);
+        }
+
+        this.updateTextSize();
+        this.updateSpriteSize();
+    },
+
+    increaseTextSize() {
+        if (this.currentTextIndex < this.textSizes.length - 1) {
+            this.currentTextIndex++;
+            this.updateTextSize();
+            this.savePreferences();
+        }
+    },
+
+    decreaseTextSize() {
+        if (this.currentTextIndex > 0) {
+            this.currentTextIndex--;
+            this.updateTextSize();
+            this.savePreferences();
+        }
+    },
+
+    increaseSpriteSize() {
+        if (this.currentSpriteIndex < this.spriteSizes.length - 1) {
+            this.currentSpriteIndex++;
+            this.updateSpriteSize();
+            this.savePreferences();
+        }
+    },
+
+    decreaseSpriteSize() {
+        if (this.currentSpriteIndex > 0) {
+            this.currentSpriteIndex--;
+            this.updateSpriteSize();
+            this.savePreferences();
+        }
+    },
+
+    updateTextSize() {
+        const size = this.textSizes[this.currentTextIndex];
+        document.documentElement.style.setProperty('--text-size-multiplier', size);
+        console.log(`Text size set to ${size}x`);
+    },
+
+    updateSpriteSize() {
+        const size = this.spriteSizes[this.currentSpriteIndex];
+        document.documentElement.style.setProperty('--sprite-scale', size);
+        console.log(`Sprite size set to ${size}x`);
+    },
+
+    savePreferences() {
+        localStorage.setItem('textSizeIndex', this.currentTextIndex);
+        localStorage.setItem('spriteSizeIndex', this.currentSpriteIndex);
+    }
+};
 
 window.addEventListener("DOMContentLoaded", () => {
-
     updateStorySelection();
-    // console.log("Hash:", window.location.hash);
-    // Promise.all([
-    //     loadScript("assets/level_main_15-15_end.txt"),
-    //     // loadScript("assets/level_act33side_05_beg.txt"),
-    //     loadStoryVariables("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/en_US/gamedata/story/story_variables.json")
-    // ]).then(([script, storyVariables]) => {
-    //     gameEngine.start("level_main_13-04_end", script, storyVariables);
-    // });
+    sizeControls.init();
 });
 
 document.getElementById("scene-container").addEventListener("click", () => {
@@ -881,4 +929,20 @@ document.getElementById('load-scene').addEventListener('click', () => {
     ]).then(([script, storyVariables]) => {
         gameEngine.start(script, storyVariables);
     });
+});
+
+document.getElementById('text-size-increase').addEventListener('click', () => {
+    sizeControls.increaseTextSize();
+});
+
+document.getElementById('text-size-decrease').addEventListener('click', () => {
+    sizeControls.decreaseTextSize();
+});
+
+document.getElementById('sprite-size-increase').addEventListener('click', () => {
+    sizeControls.increaseSpriteSize();
+});
+
+document.getElementById('sprite-size-decrease').addEventListener('click', () => {
+    sizeControls.decreaseSpriteSize();
 });
