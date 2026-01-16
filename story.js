@@ -739,16 +739,16 @@ function updateStorySelection() {
 function loadStoryReviewTable(language) {
     switch (language) {
         case "en_US":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/en_US/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/en-us/gamedata/story_review_table.json")
             .then(response => response.json());
         case "ja_JP":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ja_JP/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/ja-jp/gamedata/story_review_table.json")
             .then(response => response.json());
         case "ko_KR":
-            return fetch("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/refs/heads/main/ko_KR/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/ko-kr/gamedata/story_review_table.json")
             .then(response => response.json());
         case "zh_CN":
-            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/zh-cn/gamedata/story_review_table.json")
             .then(response => response.json());
         default:
             console.error("Unsupported language:", language);
@@ -792,9 +792,9 @@ function updateChapterSelection() {
 
 function getStoryURL(language, script) {
     switch (language) {
-        case "en_US": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/en_US/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "ja_JP": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ja_JP/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "ko_KR": return "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/ko_KR/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "en_US": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/en/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "ja_JP": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/jp/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "ko_KR": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/kr/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "zh_CN": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         default:
             console.error("Unsupported language:", language);
