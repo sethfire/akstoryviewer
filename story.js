@@ -90,11 +90,9 @@ const gameEngine = {
 
     userAction() {
         if (gameState.isTyping) {
-
             clearTimeout(gameState.typingTimeout);
-            gameState.dialogText.innerHTML = gameState.currentText;
+            gameState.dialogText.textContent = gameState.currentText;
             gameState.isTyping = false;
-
         }
         else if (gameState.isWaitingForInput && !gameState.isLocked){
             gameState.isWaitingForInput = false;
@@ -162,7 +160,7 @@ const gameEngine = {
 
 
 function textWriter(element, text, speed = 35, callback = null) {
-    element.innerHTML = "";
+    element.textContent = "";
     gameState.currentText = text;
     gameState.currentTextElement = element;
     gameState.typingIndex = 0;
@@ -170,8 +168,9 @@ function textWriter(element, text, speed = 35, callback = null) {
 
     function type() {
         if (gameState.typingIndex < gameState.currentText.length) {
-            gameState.currentTextElement.innerHTML += gameState.currentText.charAt(gameState.typingIndex);
             gameState.typingIndex++;
+            gameState.currentTextElement.textContent =
+                gameState.currentText.slice(0, gameState.typingIndex);
             gameState.typingTimeout = setTimeout(type, speed);
         } else {
             gameState.isTyping = false;
@@ -281,7 +280,7 @@ function parseEventParams(params) {
     let match;
     while ((match = regex.exec(params)) !== null) {
         const key = match[1];
-        const value = match[2] !== undefined ? match[2] : match[3];
+        let value = match[2] !== undefined ? match[2] : match[3];
 
         if (value === "true") {
             result[key] = true;
@@ -290,7 +289,7 @@ function parseEventParams(params) {
         } else if (!isNaN(value) && value.trim() !== "") {
             result[key] = Number(value);
         } else {
-            result[key] = value;
+            result[key] = value.replace(/\\n/g, '');
         }
     }
 
@@ -690,7 +689,7 @@ function updateStorySelection() {
         gameState.storyReviewTable = storyReviewTable;
 
         // Categorize each story activity
-        Object.values(storyReviewTable).forEach((activity) => {
+        Object.values(storyReviewTable.story_reviews).forEach((activity) => {
             switch(activity.actType) {
                 case "MAIN_STORY":
                     // console.log("Main Theme:", activity.name);
@@ -748,7 +747,7 @@ function loadStoryReviewTable(language) {
             return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/kr/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "zh_CN":
-            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/v2/zh-cn/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         default:
             console.error("Unsupported language:", language);
@@ -759,7 +758,7 @@ function loadStoryReviewTable(language) {
 function updateChapterSelection() {
     document.getElementById("chapter-select").innerHTML = "";
 
-    const story = gameState.storyReviewTable[document.getElementById("story-select").value];
+    const story = gameState.storyReviewTable.story_reviews[document.getElementById("story-select").value];
     
     Object.values(story.infoUnlockDatas).forEach((chapter) => {
         const option = document.createElement("option");
@@ -795,7 +794,7 @@ function getStoryURL(language, script) {
         case "en_US": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/en/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ja_JP": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/jp/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         case "ko_KR": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/kr/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "zh_CN": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "zh_CN": return "https://data.closure.wiki/v2/zh-cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
         default:
             console.error("Unsupported language:", language);
             return null;
@@ -925,7 +924,7 @@ document.getElementById('load-scene').addEventListener('click', () => {
 
     Promise.all([
         loadScript(getStoryURL(language, chapter)),
-        loadStoryVariables("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/cn/gamedata/story/story_variables.json")
+        loadStoryVariables("https://data.closure.wiki/v2/zh-cn/gamedata/story/story_variables.json")
     ]).then(([script, storyVariables]) => {
         gameEngine.start(script, storyVariables);
     });
