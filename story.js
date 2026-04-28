@@ -645,7 +645,7 @@ function getImageURL(name) {
 
 function getCharacterURL(name) {
     const baseURL = "https://static.closure.wiki/v3/avg/characters/";
-    return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
+    return baseURL + encodeURIComponent(name.toLowerCase()) + ".webp";
 }
 
 function getAudioURL(name) {
