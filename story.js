@@ -634,17 +634,17 @@ function renderLine(entry) {
 }
 
 function getBackgroundURL(name) {
-    const baseURL = "https://static.closure.wiki/v2/preview/avg/backgrounds/";
+    const baseURL = "https://static.closure.wiki/v3/avg/backgrounds/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".webp";
 }
 
 function getImageURL(name) {
-    const baseURL = "https://static.closure.wiki/v2/preview/avg/images/";
+    const baseURL = "https://static.closure.wiki/v3/avg/images/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".webp";
 }
 
 function getCharacterURL(name) {
-    const baseURL = "https://static.closure.wiki/v2/avg/characters/";
+    const baseURL = "https://static.closure.wiki/v3/avg/characters/";
     return baseURL + encodeURIComponent(name.toLowerCase()) + ".png";
 }
 
@@ -738,13 +738,13 @@ function updateStorySelection() {
 function loadStoryReviewTable(language) {
     switch (language) {
         case "en_US":
-            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/en/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/v2/en-us/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "ja_JP":
-            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/jp/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/v2/ja-jp/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "ko_KR":
-            return fetch("https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/kr/gamedata/excel/story_review_table.json")
+            return fetch("https://data.closure.wiki/v2/ko-kr/gamedata/excel/story_review_table.json")
             .then(response => response.json());
         case "zh_CN":
             return fetch("https://data.closure.wiki/v2/zh-cn/gamedata/excel/story_review_table.json")
@@ -791,10 +791,10 @@ function updateChapterSelection() {
 
 function getStoryURL(language, script) {
     switch (language) {
-        case "en_US": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/en/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "ja_JP": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/jp/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "ko_KR": return "https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/refs/heads/master/kr/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
-        case "zh_CN": return "https://data.closure.wiki/v2/zh-cn/gamedata/story/" + encodeURIComponent(script.toLowerCase()) + ".txt";
+        case "en_US": return "https://data.closure.wiki/v2/en-us/gamedata/story/" + script.toLowerCase() + ".txt";
+        case "ja_JP": return "https://data.closure.wiki/v2/ja-jp/gamedata/story/" + script.toLowerCase() + ".txt";
+        case "ko_KR": return "https://data.closure.wiki/v2/ko-kr/gamedata/story/" + script.toLowerCase() + ".txt";
+        case "zh_CN": return "https://data.closure.wiki/v2/zh-cn/gamedata/story/" + script.toLowerCase() + ".txt";
         default:
             console.error("Unsupported language:", language);
             return null;
